@@ -1,4 +1,4 @@
-with raw_data as (
+WITH raw_data AS (
     SELECT 
         "Credit amount" AS credit_amount,
         "Duration" AS duration,
