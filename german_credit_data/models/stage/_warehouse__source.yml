@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: warehouse
+    database: warehouse_iob7
+    schema: public
+    tables:
+    - name: stage_loan
