@@ -1,15 +1,18 @@
 #%%
 print("PYHTON LOG: Importing Libraries")
 
-import warnings
-warnings.filterwarnings("ignore")
+"""
+This module handles the ETL processes using PySpark and SQLAlchemy.
+"""
 
 import os
-
+import warnings
 from pyspark.sql import SparkSession
 import pyspark.pandas as ps
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
+
+warnings.filterwarnings("ignore")
 
 load_dotenv()
 
@@ -21,15 +24,15 @@ DATABASE=os.getenv('DATABASE')
 USER=os.getenv('USER')
 PASSWORD=os.getenv('PASSWORD')
 
-jdbc_url="jdbc:postgresql://{}/{}".format(HOST,DATABASE)
-jdbc_driver_path = "C:/spark/jars/postgresql-42.7.3.jar"
+jdbc_url=f"jdbc:postgresql://{HOST}/{DATABASE}"
+JDBC_DRIVER_PATH = "C:/spark/jars/postgresql-42.7.3.jar"
 
 print('PYTHON LOG: Creating Spark Session')
 # Initialize Spark session
 spark = SparkSession \
     .builder \
-    .config("sparkk.jars", jdbc_driver_path) \
-    .config('spark.driver.extraClassPath', jdbc_driver_path) \
+    .config("sparkk.jars", JDBC_DRIVER_PATH) \
+    .config('spark.driver.extraClassPath', JDBC_DRIVER_PATH) \
     .appName("Data ETL") \
     .getOrCreate()
 print('PYTHON LOG: Created Spark Session Successfully')
@@ -56,7 +59,6 @@ sdf.write.format('jdbc') \
     .option('dbtable', 'stage_loan') \
     .option("driver", "org.postgresql.Driver") \
     .save()
-    
 print('PYTHON LOG: Saved to database successfully')
 #%%
 print("PYTHON LOG: Stopping Spark Session")
