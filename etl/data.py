@@ -1,9 +1,8 @@
-#%%
-print("PYHTON LOG: Importing Libraries")
-
 """
 This module handles the ETL processes using PySpark and SQLAlchemy.
 """
+#%%
+print("PYHTON LOG: Importing Libraries")
 
 import os
 import warnings
@@ -43,8 +42,8 @@ print('PYHTON LOG: Database connection successful')
 
 print("PYTHON LOG: Loading data")
 # Load data using pyspark.pandas
-path = "csv_files/german_credit_data.csv"
-df = ps.read_csv(path)
+PATH = "csv_files/german_credit_data.csv"
+df = ps.read_csv(PATH)
 
 # Convert to PySpark DataFrame using to_spark()
 sdf = df.to_spark()
