@@ -7,10 +7,10 @@ This module handles the ETL processes using PySpark and SQLAlchemy.
 
 import os
 import warnings
+from dotenv import load_dotenv
 from pyspark.sql import SparkSession
 import pyspark.pandas as ps
 from sqlalchemy import create_engine
-from dotenv import load_dotenv
 
 warnings.filterwarnings("ignore")
 
@@ -36,7 +36,6 @@ spark = SparkSession \
     .appName("Data ETL") \
     .getOrCreate()
 print('PYTHON LOG: Created Spark Session Successfully')
-    
 str_engine_wh = "postgresql://" + USER + ":" + PASSWORD + "@" + HOST + ":" + PORT + "/" + DATABASE
 print('PYHTON LOG: attempting database connection')
 db_engine = create_engine(str_engine_wh)
