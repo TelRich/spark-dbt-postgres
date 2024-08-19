@@ -21,5 +21,5 @@ WITH raw_data AS (
 SELECT * FROM raw_data
 
 {% if target.name == 'dev' %}
-LIMIT 5
+LIMIT 1000
 {% endif %}
