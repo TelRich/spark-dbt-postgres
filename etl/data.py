@@ -4,14 +4,15 @@ print("PYHTON LOG: Importing Libraries")
 import warnings
 warnings.filterwarnings("ignore")
 
+import os
+
 from pyspark.sql import SparkSession
 import pyspark.pandas as ps
 from sqlalchemy import create_engine
-import warnings
-warnings.filterwarnings("ignore")
 from dotenv import load_dotenv
-import os
+
 load_dotenv()
+
 print("PYTHON LOG: Imported libraries successfully")
 
 HOST=os.getenv('HOST')
