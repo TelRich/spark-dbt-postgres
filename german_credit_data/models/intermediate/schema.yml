@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  - name: stg_german_credit_data
+    description: The 'stg_german_credit_data' model is a staging table that
+      standardizes and categorizes raw German Credit data, focusing on credit
+      amount, duration, age, gender, housing, purpose, checking account, saving
+      accounts, and job category. The output is limited to the first 1000
+      records.
+    columns:
+      - name: credit_amount
+        tests:
+          - not_null
+      - name: job_category
+        tests:
+          - accepted_values:
+              values: ['Unskilled', 'Skilled', 'Highly Skilled', 'Management', 'Unknown']
+
+  - name: int_credit_scores
+    description: This model calculates a credit score based on various factors
+    columns:
+      - name: credit_score
+        description: Risk score of the applicants
+        tests:
+          - not_null
+
+  - name: int_customer_segmentation
+    description: This model calculates a credit score based on various factors
+    columns:
+      - name: age_group
+        description: Age buckets of the applicants
+        tests: 
+          - accepted_values:
+              values: ['Young', 'Middle-aged', 'Senior']
+      - name: risk_segment
+        description: This columns shows which risk segment the applicants falls into. High, Medium and Low Risk Segment.
+        tests: 
+          - accepted_values:
+              values: ['High Risk', 'Medium Risk', 'Low Risk']
+
+  - name: int_default_risk
+    description: This model predicts the likelihood of default based on various criteria
+    columns: 
+      - name: default_risk 
+        description: Risk number assigned based on the
+      - name: default_risk_percentage
+        description: The risk number in percentage
+         
+  - name: int_credit_behaviour
+    description: This model analyzes customer credit behaviour based on payment history, loans types, and other factors.
+    columns: 
+      - name: credit_behaviour 
+        description: Behaviour of customer based on loan purpose and credit amount.
+      - name: checking_account_category
+        description: Account category of client
+        tests:  
+          - accepted_values:
+              values: ['Small Balance', 'Moderate Balance', 'High Balance', 'Unknow Balance']
+
+  - name: agg_credit_summary
+    columns:
+      - name: risk_segment
+        tests:
+          - not_null
+          - unique
