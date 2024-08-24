@@ -1,7 +1,5 @@
 ### **Project Title: Comprehensive Data Transformation and Analysis of German Credit Data Using dbt**
 
----
-
 #### **Project Objectives:**
 - To enhance my expertise in dbt by implementing a variety of advanced data transformation techniques on the German Credit Data.
 - To design and build a robust data transformation pipeline that efficiently processes raw data into insightful, actionable reporting tables.
@@ -10,6 +8,17 @@
 
 ---
 
+![](assets/project_overview.png)
+
+---
+
+![](assets/database_overview.png)
+
+---
+
+![](assets/linear_graph.png)
+
+---
 #### **Project Outline:**
 
 **1. Initial Setup**
