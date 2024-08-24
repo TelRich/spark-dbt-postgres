@@ -1,0 +1,9 @@
+macros:
+  - name: categorize_risk
+    description: Categorizes the credit score of the clients
+    docs:
+      show: true
+    arguments:
+      - name: credit_score
+        type: string
+        description: credit score column

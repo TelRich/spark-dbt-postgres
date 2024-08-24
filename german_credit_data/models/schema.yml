@@ -58,8 +58,15 @@ models:
               values: ['Small Balance', 'Moderate Balance', 'High Balance', 'Unknow Balance']
 
   - name: agg_credit_summary
+    description: This model summarizes credit data by different customer segments.
     columns:
       - name: risk_segment
         tests:
           - not_null
           - unique
+
+  - name: agg_segmented_default_rates
+    description: This model calculates default rates by customer segment and age age_group
+
+  - name: mart_final_credit_analysis
+    description: This model prepares the final reporting table with all required information.
