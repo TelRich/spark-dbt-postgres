@@ -7,6 +7,13 @@
 - To document every step of the transformation process for future reference and ensure that the final models are optimized for performance and scalability.
 
 ---
+#### High Level Overview
+
+<div style="display: flex; justify-content: center;">
+    <img src="assets/overview.png" alt="High Level Overview">
+</div>
+
+---
 
 ![](assets/project_overview.png)
 
