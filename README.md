@@ -26,6 +26,7 @@
 ![](assets/linear_graph.png)
 
 ---
+
 #### **Project Outline:**
 
 **1. Initial Setup**
